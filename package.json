@@ -9,7 +9,7 @@
   "devDependencies": {
     "nodemon": "^3.1.0"
   },
-  "name": "tiffinger-thiel-challenge",
+  "name": "TT-challenge",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
