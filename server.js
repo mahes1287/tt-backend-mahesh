@@ -3,8 +3,7 @@ const fastify = Fastify({
   logger: true,
 });
 
-import cors from '@fastify/cors'
-
+import cors from "@fastify/cors";
 
 import axios from "axios";
 import { collection, getDocs, getFirestore } from "firebase/firestore";
@@ -13,9 +12,9 @@ import { collection, getDocs, getFirestore } from "firebase/firestore";
 import db from "./firebase/firebaseConfig.js";
 // const db = getFirestore(app);
 import { doc, setDoc } from "firebase/firestore";
-await fastify.register(cors, { 
+await fastify.register(cors, {
   // put your options here
-})
+});
 
 // Declare a route
 fastify.get("/", async function handler(request, reply) {
@@ -55,9 +54,7 @@ async function loadData(request, reply) {
     );
 
     detailedPokemons.map(async (pokemon) => {
-      await setDoc(doc(db, "pokemons", pokemon.name), {
-        ...pokemon,
-      });
+      await setDoc(doc(db, "pokemons", pokemon.name), pokemon);
     });
     return detailedPokemons;
   } catch (error) {
